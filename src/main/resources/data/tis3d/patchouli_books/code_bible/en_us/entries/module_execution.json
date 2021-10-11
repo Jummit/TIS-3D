@@ -1,0 +1,172 @@
+{
+    "name": "Execution Module",
+    "icon": "tis3d:module_execution",
+    "category": "tis3d:modules",
+    "pages": [
+        {
+            "title": "",
+            "text": "The execution module is the primary means of programming a TIS-3D computer. When installed in a $(l)$(l:casing)casing$(), it can be programmed by using a book on it, containing the code to program it with. For more a more convenient development experience, consider investing in a $(l)$(l:book_code)Code Bible$(), the true and tested tool of any professional. $(br)",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "",
+            "type": "text"
+        },
+        {
+            "title": "Architecture",
+            "text": "The execution module allows the user to control the operation of a TIS-3D computer with great flexibility. Each execution module can be programmed using a primitive assembly language, providing an optimized set of instructions. While active, the execution module processes the programmed instructions one by one, starting with the first instruction in the program. All instructions that are not jump instructions",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "advance the program counter to the next instruction in the program after finishing their operation. If the program counter leaves the valid range of instructions, the program automatically continues from the first instruction. $(o)This directly implies that programs loop$() unless explicitly halted. $(br) $(br)Instructions may operate on targets of different kinds. A target is a valid source for reading a value from, or sink for writing",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "a value to. Valid targets include the four ports of the execution module, the execution module's registers and a small number of virtual registers and ports. $(br) $(br)A TIS-3D computer, and in extension the execution module, supports a value range of 16 Bit, treated as a single, signed value ranging from -32768 to 32767. $(o)Due to technical limitations, some modules, including the execution module, may choose to display values",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "as unsigned hexadecimal representations$(). $(br) $(br)",
+            "type": "text"
+        },
+        {
+            "title": "Targets",
+            "text": "l)ACC$() $(br)Register. This is the primary register of an execution module. Arithmetic operations will usually store their result in this register. $(br) $(br)$(l)BAK$() $(br)Non-addressable register. Special register that can be used to store a value from $(l)ACC$(). It cannot be addressed directly, but must instead be accessed using the $(l)SAV$() and $(l)SWP$() instructions. $(br)",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "l)NIL$() $(br)Virtual register. This is a pseudo-target that may be written to to dispose values, or read from to produce zero values. $(br) $(br)$(l)LEFT$(), $(l)RIGHT$(), $(l)UP$(), $(l)DOWN$() $(br)Port. These represent the four ports of the execution module. Operation on the external ports is generally slower than operating on internal registers. $(br) $(br)$(l)ANY$() $(br)",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "Virtual port. This is a pseudo-target that will perform an operation on all ports simultaneously, but will only actually perform an operation on the first port to finish the operation. For example, $(l)MOV 10 ANY$() will begin writing the value 10 to all ports, but as soon as it was read from one port, it can no longer be read from all other ports; the write operation on all ports will effectively be canceled after one succeeded. $(br) $(br)",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "l)LAST$() $(br)Virtual port. This is a pseudo-target that will store the $(o)actual$() port that finished the last operation that used the $(l)ANY$() pseudo-target. $(br) $(br)",
+            "type": "text"
+        },
+        {
+            "title": "Language Specification",
+            "text": "In addition to a list of instructions, assembler code provided to an execution module may contain metadata. Comments are textual notes in the code that are completely ignored in the execution of the program. Labels mark positions in the code that can be addressed by jump instructions. Comments, labels and blank lines have no influence on the addressing of the compiled program. This is relevant when",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "using the $(l)JRO$() instruction. $(br) $(br)$(l)$()Comments $(br)Comments are denoted by a leading $(l)#$() (#) hash character. They may either appear as the sole content of a line, or on the same line as an instruction or label. $(br)Example: $(br)$(l)# Single line comment$() $(br)$(l)LOOP: # Start of loop$() $(br)$(l)MOV 0, ACC # Reset$() $(br) $(br)",
+            "type": "text"
+        },
+        {
+            "title": "Defines",
+            "text": "A special form of comment can be used to create or remove \"defines\", which are aliases for some value. These make it easier to write reusable code, by moving configuration to a single location where it can be easily manipulated and reused. A define is created using the $(l)#define A B$() syntax and removed using the $(l)#undef A$() syntax. $(br)Example: $(br)$(l)# Let A = RIGHT$() $(br)",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "l)#define A RIGHT$() $(br)$(l)# Move value from right to acc$() $(br)$(l)MOV A ACC$() $(br)$(l)#undef A$() $(br)$(l)MOV A ACC # Error: A is not a valid target$() $(br) $(br)$(l)$()Labels $(br)Labels are denoted by a string followed by a $(l):$() (:) color character. A label always refers to the instruction following it. When used as the target of a jump instruction, that instruction is be jumped to",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "directly. This also means that with respect to the program's execution, it makes no difference whether a label is placed on the same line, or the line preceding the instruction it references. $(br)Example: $(br)$(l)START: MOV 8, ACC$() $(br)$(l)LOOP:$() $(br)$(l)SUB 1$() $(br)$(l)JGZ LOOP$() $(br)$(l)JMP START$() $(br)$(l)# Never reached$() $(br) $(br)$(l)$()Instructions $(br)",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "l)NOP$() $(br)Pseudo-instruction that has no effect on the state of the execution module's ports nor registers, i.e. no influence on state. $(l)NOP$() is automatically compiled to $(l)ADD NIL$(). $(br) $(br)$(l)$()Data Transfer $(br)$(l)MOV <SRC> <DST>$() $(br)Transfers data from the target $(l)SRC$() to the target $(l)DST$(). See above for a list of valid targets. Note that operating on registers / internal state is typically faster",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "than operating on ports. Exact timings are not part of the specification, and vendor specific. $(br)Example: $(br)$(l)MOV 8, ACC$() Writes the value 8 to the $(l)ACC$() register. $(br)$(l)MOV LEFT, RIGHT$() Reads a value from the left port, then writes the read value to the right port. $(br)$(l)MOV DOWN, NIL$() Reads the value from the bottom port and writes it to $(l)NIL$(), effectively discarding it. $(br) $(br)",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "l)SWP$() $(br)Exchanges the current values of the $(l)ACC$() and $(l)BAK$() registers. $(br) $(br)$(l)SAV$() $(br)Copies the current value of $(l)ACC$() to $(l)BAK$(). $(br) $(br)$(l)$()Arithmetic Operations $(br)$(l)ADD <SRC>$() $(br)Reads a value from the specified target $(l)SRC$() and adds it to the current value of $(l)ACC$(), then writes the result of the operation back to $(l)ACC$(). Note that arithmetic",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "over- or underflows are clamped, i.e. there is no over- or underflow. The value will merely cap out at the end of the range of valid values. $(br)Example: $(br)$(l)ADD 1$() Adds one to the current value of $(l)ACC$(). $(br)$(l)ADD LEFT$() Reads a value from the left port, then adds it to $(l)ACC$(). $(br) $(br)$(l)SUB <SRC>$() $(br)Reads a value from the specified target $(l)SRC$() and subtracts it from the current",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "value of $(l)ACC$(), then writes the result of the operation back to $(l)ACC$(). Note that arithmetic over- or underflows are clamped, i.e. there is no over- or underflow. The value will merely cap out at the end of the range of valid values. $(br)Example: $(br)$(l)SUB 1$() Subtracts one to the current value of $(l)ACC$(). $(br)$(l)SUB LEFT$() Reads a value from the left port, then subtracts it from $(l)ACC$(). $(br) $(br)$(l)MUL",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "<SRC>$() $(br)Reads a value from the specified target $(l)SRC$() and multiplies it with the current value of $(l)ACC$(), then writes the result of the operation back to $(l)ACC$(). Note that arithmetic overflows are clamped, i.e. there is no overflow. The value will merely cap out at the end of the range of valid values. $(br)Example: $(br)$(l)MUL 2$() Multiplies the value of $(l)ACC$() by two. $(br)$(l)MUL LEFT$() Reads a value from the left",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "port, then multiplies it with $(l)ACC$(). $(br) $(br)$(l)DIV <SRC>$() $(br)Reads a value from the specified target $(l)SRC$() and divides the current value of $(l)ACC$() by it, then writes the result of the operation back to $(l)ACC$(). Note that division by zero will lead to the system entering an errored state and resetting itself. $(br)Example: $(br)$(l)DIV 2$() Divides the value of $(l)ACC$() by two. $(br)$(l)DIV LEFT$()",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "Reads a value from the left port, then divides $(l)ACC$() by it. $(br) $(br)$(l)NEG$() $(br)Negates the current value of $(l)ACC$() and stores the result in $(l)ACC$(). $(br) $(br)$(l)$()Bitwise Operations $(br)$(l)AND <SRC>$() $(br)Reads a value from the specified target $(l)SRC$() and performs a bitwise $(o)and$() operation on it and the current value of $(l)ACC$(). $(br)Example: $(br)",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "l)AND 0x00FF$() Zeroes out the high byte of the value stored in $(l)ACC$(), keeping the low byte as-is. $(br)$(l)AND LEFT$() Reads a value from the left port, then uses it as a bitmask on the current value in $(l)ACC$(). $(br) $(br)$(l)OR <SRC>$() $(br)Reads a value from the specified target $(l)SRC$() and performs a bitwise $(o)or$() operation on it and the current value of $(l)ACC$(). $(br)Example: $(br)$(l)OR 0x0001$() Sets",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "the lowest bit in the value stored in $(l)ACC$() and writes the result back to $(l)ACC$(). $(br)$(l)OR LEFT$() Reads a value from the left port, then sets all bits in the read value not already set in $(l)ACC$() and writes the result back to $(l)ACC$(). $(br) $(br)$(l)XOR <SRC>$() $(br)Reads a value from the specified target $(l)SRC$() and performs a bitwise $(o)exclusive or$() operation on it and the current value of $(l)ACC$(). $(br)Example: $(br)",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "l)XOR 1$() Sets the lowest bit in $(l)ACC$() if it is currently unset, resets it if it is currently set. $(br)$(l)XOR LEFT$() Reads a value from the left port and applies an $(o)xor$() operation on it and the value of $(l)ACC$(). $(br) $(br)$(l)SHL <SRC>$() $(br)Reads a value from the specified target $(l)SRC$() and performs a bitwise shift to the left on the current value of $(l)ACC$() by the number of bits specified by the read value, then writes the",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "esult of the operation back to $(l)ACC$(). $(br)Example: $(br)$(l)SHL 4$() Shifts the value of $(l)ACC$() to the left by four bits, e.g. $(l)0x0F$() becomes $(l)0xF0$(). $(br)$(l)SHL LEFT$() Reads a value from the left port and shifts the value of $(l)ACC$() to the left by that many bits. $(br) $(br)$(l)SHR <SRC>$() $(br)Reads a value from the specified target $(l)SRC$() and performs a bitwise shift to the right on the current value",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "of $(l)ACC$() by the number of bits specified by the read value, then writes the result of the operation back to $(l)ACC$(). $(br)Example: $(br)$(l)SHR 4$() Shifts the value of $(l)ACC$() to the right by four bits, e.g. $(l)0xF0$() becomes $(l)0x0F$(). $(br)$(l)SHR LEFT$() Reads a value from the left port and shifts the value of $(l)ACC$() to the right by that many bits. $(br) $(br)$(l)NOT$() $(br)Performs a bitwise negation on the",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "current value of $(l)ACC$(), then writes the result of the operation back to $(l)ACC$(). $(br)Example: $(br)$(l)NOT$() with $(l)ACC$() holding the value $(l)0xFF00$() would convert it to $(l)0x00FF$(). $(br) $(br)$(l)$()$(l)LAST$() manipulation $(br)$(l)RRLAST$() $(br)If the current value of $(l)LAST$() is not $(l)NIL$(), rotate the value right (clockwise) by one. Otherwise does nothing. $(br) $(br)$(l)RLLAST$() $(br)",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "If the current value of $(l)LAST$() is not $(l)NIL$(), rotate the value left (counter-clockwise) by one. Otherwise does nothing. $(br) $(br)$(l)$()Control Flow $(br)$(l)JMP <LABEL>$() $(br)Unconditionally jump to the instruction referenced by the specified label $(l)LABEL$(). $(br) $(br)$(l)JEZ <LABEL>$() $(br)If the current value of $(l)ACC$() is zero (0), jump to the instruction referenced by the specified",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "label $(l)LABEL$(). Otherwise continue with the next operation in the program. $(br) $(br)$(l)JNZ <LABEL>$() $(br)If the current value of $(l)ACC$() is $(o)not$() zero (0), jump to the instruction referenced by the specified label $(l)LABEL$(). Otherwise continue with the next operation in the program. $(br) $(br)$(l)JGZ <LABEL>$() $(br)If the current value of $(l)ACC$() is $(o)greater than$() zero (0), jump to the instruction",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "eferenced by the specified label $(l)LABEL$(). Otherwise continue with the next operation in the program. $(br) $(br)$(l)JLZ <LABEL>$() $(br)If the current value of $(l)ACC$() is $(o)less than$() zero (0), jump to the instruction referenced by the specified label $(l)LABEL$(). Otherwise continue with the next operation in the program. $(br) $(br)$(l)JRO <SRC>$() $(br)Unconditionally jump to a relative address,",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "ead from the specified target $(l)SRC$(). This modifies the program counter by adding the value read from $(l)SRC$() to it. Execution resumes at the new address. $(l)JRO 0$() effectively halts the execution module indefinitely. $(br)",
+            "type": "text"
+        }
+    ]
+}

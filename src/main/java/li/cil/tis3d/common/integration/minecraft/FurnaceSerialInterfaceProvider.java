@@ -2,7 +2,6 @@ package li.cil.tis3d.common.integration.minecraft;
 
 import li.cil.tis3d.api.serial.SerialInterface;
 import li.cil.tis3d.api.serial.SerialInterfaceProvider;
-import li.cil.tis3d.api.serial.SerialProtocolDocumentationReference;
 import li.cil.tis3d.common.mixin.AbstractFurnaceBlockEntityAccessors;
 import li.cil.tis3d.util.EnumUtils;
 import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
@@ -27,11 +26,6 @@ public final class FurnaceSerialInterfaceProvider implements SerialInterfaceProv
             throw new IllegalArgumentException("Provided location does not contain a furnace. Check via worksWith first.");
         }
         return new SerialInterfaceFurnace(furnace);
-    }
-
-    @Override
-    public SerialProtocolDocumentationReference getDocumentationReference() {
-        return new SerialProtocolDocumentationReference("Minecraft Furnace", "protocols/minecraft_furnace.md");
     }
 
     @Override

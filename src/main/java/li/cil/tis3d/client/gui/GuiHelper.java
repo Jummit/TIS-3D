@@ -8,10 +8,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.Hand;
 
 public final class GuiHelper {
-    @Environment(EnvType.CLIENT)
-    public static void openManualGui() {
-        MinecraftClient.getInstance().openScreen(new ManualGui());
-    }
 
     @Environment(EnvType.CLIENT)
     public static void openCodeBookGui(final PlayerEntity player, final Hand hand) {

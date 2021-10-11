@@ -1,0 +1,22 @@
+{
+    "name": "Key",
+    "icon": "tis3d:key",
+    "category": "tis3d:general",
+    "pages": [
+        {
+            "title": "",
+            "text": "The key is available for most $(l)$(l:casing)casing$() series and provides a convenient way of locking configurations to prevent accidental or malicious interactions with a $(l)$(l:casing)casing$() and the modules installed in it. $(br) $(br)Keys contain an advanced imprinting mechanism, producing a unique signature for each key. $(br)",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "l)$(l:casing)Casings$() locked with a key provide reduced access: modules cannot be removed or installed, and most modules will no longer allow changes to their configuration. Specifically, among the common mainline modules, the $(l)$(l:module_execution)execution module$() will no longer accept new programming. However, the $(l)$(l:module_keypad)keypad module$() will still allow user input. $(br) $(br)Take good care of a key once it was used to lock a $(l)$(l:casing)casing$(). If lost, the only",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "way to unlock a $(l)$(l:casing)casing$() is to break and rebuild it. $(br) $(br)While sneaking, keys can also be used to close/open individual receiving ports on a $(l)$(l:casing)casing's$() face. See the manual entry on $(l)$(l:casing)casings$() for more information. $(br)",
+            "type": "text"
+        }
+    ]
+}

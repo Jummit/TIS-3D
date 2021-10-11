@@ -20,7 +20,6 @@ import java.util.Objects;
  */
 public final class Items {
     public static final Item BOOK_CODE = new CodeBookItem(new Item.Settings().maxCount(1).group(API.itemGroup));
-    public static final Item BOOK_MANUAL = new ManualBookItem(new Item.Settings().maxCount(16).group(API.itemGroup));
     public static final Item KEY = new KeyItem(new Item.Settings().maxCount(1).group(API.itemGroup));
     public static final Item KEY_CREATIVE = new KeyItem(new Item.Settings().maxCount(1).group(API.itemGroup));
     public static final Item PRISM = new Item(new Item.Settings().maxCount(32).group(API.itemGroup));
@@ -41,10 +40,6 @@ public final class Items {
 
     public static boolean isBookCode(final ItemStack stack) {
         return isItem(stack, BOOK_CODE);
-    }
-
-    public static boolean isBookManual(final ItemStack stack) {
-        return isItem(stack, BOOK_MANUAL);
     }
 
     public static boolean isKey(final ItemStack stack) {
@@ -70,7 +65,6 @@ public final class Items {
         }
 
         registerItem(BOOK_CODE, Constants.NAME_ITEM_BOOK_CODE);
-        registerItem(BOOK_MANUAL, Constants.NAME_ITEM_BOOK_MANUAL);
 
         registerItem(KEY, Constants.NAME_ITEM_KEY);
         registerItem(KEY_CREATIVE, Constants.NAME_ITEM_KEY_CREATIVE);

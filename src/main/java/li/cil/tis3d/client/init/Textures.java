@@ -9,10 +9,6 @@ import net.minecraft.util.Identifier;
 @Environment(EnvType.CLIENT)
 public final class Textures {
     public static final Identifier LOCATION_GUI_BOOK_CODE_BACKGROUND = new Identifier(API.MOD_ID, "textures/gui/book_code.png");
-    public static final Identifier LOCATION_GUI_MANUAL_BACKGROUND = new Identifier(API.MOD_ID, "textures/gui/manual.png");
-    public static final Identifier LOCATION_GUI_MANUAL_TAB = new Identifier(API.MOD_ID, "textures/gui/manual_tab.png");
-    public static final Identifier LOCATION_GUI_MANUAL_SCROLL = new Identifier(API.MOD_ID, "textures/gui/manual_scroll.png");
-    public static final Identifier LOCATION_GUI_MANUAL_MISSING = new Identifier(API.MOD_ID, "textures/gui/manual_missing.png");
     public static final Identifier LOCATION_GUI_MEMORY = new Identifier(API.MOD_ID, "textures/gui/module_memory.png");
 
     public static final Identifier LOCATION_OVERLAY_UTIL_WHITE = new Identifier(API.MOD_ID, "block/overlay/util_white");

@@ -1,0 +1,22 @@
+{
+    "name": "Stack Module",
+    "icon": "tis3d:module_stack",
+    "category": "tis3d:modules",
+    "pages": [
+        {
+            "title": "",
+            "text": "The stack module is capable of storing up to sixteen (16) values. It can act as expanded memory for $(l)$(l:module_execution)execution modules$(), for example. $(br) $(br)While not full, the stack module reads values from all four of its ports and pushes read values on top of the list of stored values. While not empty, the stack module",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "writes the topmost value, i.e. the value that was last pushed to the internal list of values, to all four of its ports. In other words, the queue module is LIFO buffer. $(br) $(br)A value on the stack can always only be transferred to one port, i.e. values will never be duplicated; even when multiple reads would occur in one $(l)$(l:controller)controller$() cycle, only one will succeed. Whenever a value is stored on the stack, the stack module resets",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "its write operations to ensure the correct value is being transferred. The specific timings resulting from this are vendor specific and an implementation detail. $(br)",
+            "type": "text"
+        }
+    ]
+}

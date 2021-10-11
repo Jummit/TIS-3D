@@ -1,0 +1,17 @@
+{
+    "name": "ROM Module",
+    "icon": "tis3d:module_read_only_memory",
+    "category": "tis3d:modules",
+    "pages": [
+        {
+            "title": "",
+            "text": "The read-only memory module (ROM module) is very similar to the $(l)$(l:module_random_access_memory)RAM module$(), in that it stores 256 8-bit values for later retrieval. Access to the stored values works the same way as with the $(l)$(l:module_random_access_memory)RAM module$(). $(br) $(br)However, the ROM module $(o)cannot$() be written to from another module. To program a ROM module, hold",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "it in your hand and use it on an installed $(l)$(l:module_random_access_memory)RAM module$(). The current state of the $(l)$(l:module_random_access_memory)RAM module$() will then stored in the ROM module for later retrieval. Alternatively, use a ROM module while holding it in your hand to manipulate stored values manually -- veeery carefully. $(br) $(br)This can be quite useful for initializing a TIS-3D system automatically, and for the creative can open the way for much larger and complex programs. $(br)",
+            "type": "text"
+        }
+    ]
+}

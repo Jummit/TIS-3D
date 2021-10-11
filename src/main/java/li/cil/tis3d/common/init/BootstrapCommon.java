@@ -3,12 +3,10 @@ package li.cil.tis3d.common.init;
 import li.cil.tis3d.api.CommonAPI;
 import li.cil.tis3d.api.ExtInitializer;
 import li.cil.tis3d.api.ModuleAPI;
-import li.cil.tis3d.client.manual.provider.GameRegistryPathProvider;
 import li.cil.tis3d.common.API;
 import li.cil.tis3d.common.Constants;
 import li.cil.tis3d.common.Settings;
 import li.cil.tis3d.common.api.InfraredAPIImpl;
-import li.cil.tis3d.common.api.ManualAPIImpl;
 import li.cil.tis3d.common.api.ModuleAPIImpl;
 import li.cil.tis3d.common.api.SerialAPIImpl;
 import li.cil.tis3d.common.event.TickHandlerInfraredPacket;
@@ -41,14 +39,12 @@ public final class BootstrapCommon implements ModInitializer {
         final ModuleAPI moduleAPI = new ModuleAPIImpl();
 
         API.infrared = new InfraredAPIImpl();
-        API.manual = ManualAPIImpl.INSTANCE;
         API.module = moduleAPI;
         API.serial = SerialAPIImpl.INSTANCE;
 
         final CommonAPI commonAPI = new CommonAPI();
         commonAPI.itemGroup = API.itemGroup;
         commonAPI.infrared = API.infrared;
-        commonAPI.manual = API.manual;
         commonAPI.module = API.module;
         commonAPI.serial = API.serial;
 
@@ -86,9 +82,6 @@ public final class BootstrapCommon implements ModInitializer {
         moduleAPI.addProvider(new SimpleModuleProvider<>(Constants.NAME_ITEM_MODULE_STACK, StackModule::new));
         moduleAPI.addProvider(new SimpleModuleProvider<>(Constants.NAME_ITEM_MODULE_TERMINAL, TerminalModule::new));
         moduleAPI.addProvider(new SimpleModuleProvider<>(Constants.NAME_ITEM_MODULE_TIMER, TimerModule::new));
-
-        // Add default manual providers for server side stuff.
-        commonAPI.manual.addProvider(new GameRegistryPathProvider());
 
         // Mod integration.
         Integration.init();

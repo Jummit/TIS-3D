@@ -1,0 +1,22 @@
+{
+    "name": "Controller",
+    "icon": "tis3d:controller",
+    "category": "tis3d:general",
+    "pages": [
+        {
+            "title": "",
+            "text": "The controller block is the core of any TIS-3D computer. It provides power to all connected $(l)$(l:casing)casings$() and advances the state of the TIS-3D computer. A controller can be powered using common redstone signals, with higher input values resulting in faster execution speed. As a special case, an input strength of one (1) will result in the TIS-3D",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "computer entering a paused state, i.e. its state will not be advanced, but it will also not be powered down and therefore reset. $(br) $(br)A single controller block can support up to eight (8) $(l)$(l:casing)casing$() blocks. If more casing blocks are connected to a controller, the controller will perform an emergency shutdown and cease operation until the number of connected $(l)$(l:casing)casings$() is sufficiently reduced. $(br) $(br)",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "Controllers may not be connected to each other. If multiple controllers are connected, directly or indirectly through a series of $(l)$(l:casing)casings$(), all controllers will perform an emergency shutdown and cease operation until they are no longer connected to any other controllers. $(br) $(br)Connections are established by a controller and a $(l)$(l:casing)casing$() or a $(l)$(l:casing)casing$() and another $(l)$(l:casing)casing$() sharing a face. $(br)",
+            "type": "text"
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "name": "Code Bible",
+    "icon": "tis3d:book_code",
+    "category": "tis3d:general",
+    "pages": [
+        {
+            "title": "",
+            "text": "The code book (or as it is sometimes referred to, the Code Bible), is the best friend of programmers working with a TIS-3D computer. It allows sketching programs in a much more comfortable manner than a simple book and quill would, allows for corrections and makes it much easier to spot potential mistakes in the code. $(br)",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "To obtain a copy of the code book, simply use a normal book on an $(l)$(l:module_execution)execution module$() installed in a $(l)$(l:casing)casing$(). To install a program on an $(l)$(l:module_execution)execution module$(), select in in the code book, then use the code book on the $(l)$(l:module_execution)execution module$(). To copy an existing program from an $(l)$(l:module_execution)execution module$() into the code book, sneak while using the code book on the $(l)$(l:module_execution)execution module$(). $(br) $(br)By default, each page in the book will contain",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "its own, separate program, and when programming an $(l)$(l:module_execution)execution module$() only that page's content will be programmed onto it. However, if the last line of text on a page is the preprocessor macro $(l)#BWTM$(), the program will continue on to the next page, enabling you to write programs across multiple pages. When programming an $(l)$(l:module_execution)execution module$() while on any page of a multi-page program, the whole program will be installed on the module. $(br)",
+            "type": "text"
+        }
+    ]
+}

@@ -1,0 +1,5 @@
+{
+	"name": "Serial Protocols",
+	"description": "This chapter contains a list of reported protocols for the $(l)$(l:module_serial_port)serial port module$(). The following list could contain content provided by third parties and has not been proofread by our editorial office. The publisher of this document does not take any responsibility for personal or material harm resulting of incorrect information in the following.",
+	"icon": "tis3d:textures/gui/manual_serial_protocols.png"
+}

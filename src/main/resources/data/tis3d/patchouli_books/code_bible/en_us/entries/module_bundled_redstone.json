@@ -1,0 +1,42 @@
+{
+    "name": "Bundled Redstone Module",
+    "icon": "tis3d:module_bundled_redstone",
+    "category": "tis3d:modules",
+    "pages": [
+        {
+            "title": "",
+            "text": "The bundled redstone module provides TIS-3D computers a means to interface with bundled redstone implementations from various manufacturers. It will interface with $(o)only$() bundled cables. For the various insulated cables vendors regularly provide, please refer to the regular $(l)$(l:module_redstone)redstone module$(). The bundled redstone module requires a slightly more",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "advanced protocol due to multiple channels being interfaced. Like the regular $(l)$(l:module_redstone)redstone module$() it allows both reading and emitting signals. Note that the bundled redstone module will not perform any signal processing such as normalization or clamping. Illegal values will lead to undefined behavior. Refer to your bundled cables' vendor's specification on legal values. $(br) $(br)The bundled redstone module has a concept of an active",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "channel. This determines from which bundled channel values are read. The channel can be changed by providing an appropriately formatted value (see $(o)Signal Specification$()). The bundled redstone module reads values from all four of its ports and emits a signal of the encoded strength to the encoded channel (see $(o)Signal Specification$()). The bundled redstone module writes the redstone signal currently applied to the active channel to all four of its ports. $(br)",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "",
+            "type": "text"
+        },
+        {
+            "title": "Signal Specification",
+            "text": "The values the bundled redstone module reads from its ports are interpreted as two separate values, one in the high byte ($(l)0xFF00$()) of the value and one in the low byte ($(l)0x00FF$()). The high byte typically denotes the channel to write the value in the low byte to. As the sole exception, if the high byte equals $(l)0xFF$() the low byte contains the channel to set the active channel to. In other words, to set the",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "active channel, which determines which channel values are read from, the value must contain $(l)0xFF$() as the high byte, and the number of the new active channel as the low byte. $(br) $(br)Example of how to switch a bundled redstone module on the left port of an execution module to the seventh channel: $(br)$(l)MOV 0XFF ACC$() $(br)$(l)SHL 8 # HI = 0xFF$() $(br)$(l)ADD 6 # LO = 6$() $(br)$(l)MOV ACC",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "LEFT$() $(br)",
+            "type": "text"
+        }
+    ]
+}

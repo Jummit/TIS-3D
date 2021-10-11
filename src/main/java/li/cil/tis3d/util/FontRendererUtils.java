@@ -10,7 +10,6 @@ import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * Utility methods based on the default Minecraft font renderer.

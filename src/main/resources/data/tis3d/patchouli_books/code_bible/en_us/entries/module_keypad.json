@@ -1,0 +1,17 @@
+{
+    "name": "Keypad Module",
+    "icon": "tis3d:module_keypad",
+    "category": "tis3d:modules",
+    "pages": [
+        {
+            "title": "",
+            "text": "The keypad module allows basic user-interfacing with a TIS-3D computer system. It permits the input of single digits, which are then written to the ports of the keypad module. $(br) $(br)While a value was input and not read, the keypad module writes the last input value to all four of its ports until it was",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "ead. $(br) $(br)An input value can always only be transferred to one port, i.e. values will never be duplicated; even when multiple reads would occur in one $(l)$(l:controller)controller$() cycle, only one will succeed. While a value is being transferred, no further values can be input, which is usually also visually indicated, but may vary based on vendor and series. $(br)",
+            "type": "text"
+        }
+    ]
+}

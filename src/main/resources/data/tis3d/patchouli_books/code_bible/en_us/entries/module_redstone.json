@@ -1,0 +1,17 @@
+{
+    "name": "Redstone Module",
+    "icon": "tis3d:module_redstone",
+    "category": "tis3d:modules",
+    "pages": [
+        {
+            "title": "",
+            "text": "The redstone module provides TIS-3D computers a means to emit redstone signals to block adjacent to the face of the $(l)$(l:casing)casing$() the redstone module is installed in, as well as to read the currently applied redstone signal to the $(l)$(l:casing)casing$()'s face the redstone module is installed in. $(br) $(br)The redstone module reads",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "values from all four of its ports and apply emit a redstone signal of that strength. Values exceeding the general rules of redstone physics are clamped for convenience. The redstone module writes the currently applied redstone signal to all four of its ports. $(br)",
+            "type": "text"
+        }
+    ]
+}

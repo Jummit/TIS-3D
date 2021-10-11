@@ -31,9 +31,9 @@
         ]
     },
     "depends": {
-        "minecraft": ">=1.16.2",
-        "fabricloader": ">=0.9.0",
-        "fabric": ">=0.2.7"
+        "minecraft": ">=1.16.5",
+        "fabricloader": ">=0.12.1",
+        "fabric": ">=0.40.6"
     },
     "mixins": [
         "tis3d.mixins.common.json",

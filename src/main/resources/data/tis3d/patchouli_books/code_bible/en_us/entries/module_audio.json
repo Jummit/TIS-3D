@@ -1,0 +1,27 @@
+{
+    "name": "Audio Module",
+    "icon": "tis3d:module_audio",
+    "category": "tis3d:modules",
+    "pages": [
+        {
+            "title": "",
+            "text": "The audio module synthesizes sounds based on numeric triggers. The emitted sound is defined by the value transmitted to the audio module as defined below. If a volume of zero is specified the signal will be discarded. $(br) $(br)The audio module continuously reads values from all four of its ports and emits",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "a sound based on the read value. The read value is a packed value consisting of the properties of the sound to generate. This compact representation allows triggering sounds in a very responsive fashion. $(br) $(br)",
+            "type": "text"
+        },
+        {
+            "title": "Signal Specification",
+            "text": "Each value received by the audio module is interpreted as a packed value with the components: instrument, volume and pitch. The corresponding masks are as follows: $(br)- $(l)0xFF00$() contains the pitch. $(br)- $(l)0x00F0$() contains the volume, clamped to [0, 5]. $(br)- $(l)0x000F$() contains the instrument, one of {0, 1, 2, 3, 4}. $(br) $(br)",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "When generating sounds the bitwise operations of the $(l)$(l:module_execution)execution module$() will prove useful in combining the individual values into one. $(br)",
+            "type": "text"
+        }
+    ]
+}

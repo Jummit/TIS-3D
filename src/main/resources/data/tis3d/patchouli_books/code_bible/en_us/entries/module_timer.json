@@ -1,0 +1,37 @@
+{
+    "name": "Timer Module",
+    "icon": "tis3d:module_timer",
+    "category": "tis3d:modules",
+    "pages": [
+        {
+            "title": "",
+            "text": "The timer module uses a high precision quartz to allow consistent and reliably timed wait operations. Its hardware runs on a 20 Hz clock, meaning one timer step will take exactly 50 milliseconds. The timer is configured using these clock cycles. $(br) $(br)The timer module continuously reads values from all",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "four of its ports. When a value is read, the internal timer state is set to the specified value, and will be decremented by one in each future clock cycle, until it reaches zero. Once it has reached zero, the timer module continuously writes a constant, implementation specific value to all four of its ports. $(br) $(br)As the timer module only writes to its ports when the timer has elapsed, it is therefore possible to wait for",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "a specific amount of time, by setting up the timer and then trying to read a value from it. Due to the blocking nature of port I/O in TIS-3D computers, this will pause exectution until the timer has elapsed. $(br) $(br)An interrupt may be implemented by having an $(l)$(l:module_execution)execution module$() read from the timer module using the virtual $(l)ANY$() port, therefore allowing concurrent programs to end the read by pushing a value to that $(l)$(l:module_execution)execution module$(). $(br)",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "",
+            "type": "text"
+        },
+        {
+            "title": "Time conversion table",
+            "text": "For the simpl- for simplicity, we provide a lookup table of commonly used times to the value the timer module has to be configured with to wait for that amount of time. $(br) $(br)Half a second: 10 $(br)One second: 20 $(br)Five seconds: 100 $(br)Ten seconds: 200 $(br)One minute: 1200 $(br)Fifteen",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "minutes: 18000 $(br)Half an hour: 36000 $(br) $(br)The maximum timer value is limited by the bandwidth of the ports in TIS-3D computers, which is 16 bit. Therefore, the maximum configurable timer value is 0xFFFF, which results in a wait of 54 minutes 36 seconds and 750 milliseconds. $(br)",
+            "type": "text"
+        }
+    ]
+}

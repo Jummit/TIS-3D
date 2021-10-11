@@ -1,0 +1,32 @@
+{
+    "name": "Computer Specification",
+    "icon": "tis3d:book_code",
+    "category": "tis3d:general",
+    "pages": [
+        {
+            "title": "",
+            "text": "TIS-3D allows building modular and powerful computers. A computer consists of exactly one $(l)$(l:controller)controller$() and up to eight $(l)$(l:casing)casings$(). Controller and $(l)$(l:casing)casings$() are connected by sharing face. The connection to the $(l)$(l:controller)controller$() is transitive: if $(l)$(l:casing)casing$() $(l)C1$() is connected to a $(l)$(l:controller)controller$(), $(l)$(l:casing)casing$() $(l)C2$() is also connected to the $(l)$(l:controller)controller$() if it is connected to $(l)$(l:casing)casing$() $(l)C1$(). $(br) $(br)A computer",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "must have exactly one $(l)$(l:controller)controller$(). If multiple $(l)$(l:controller)controllers$() are connected, directly or indirectly, the computer will not turn on. A computer must have no more than eight $(l)$(l:casing)casings$(). If more than eight $(l)$(l:casing)casings$() are connected to the $(l)$(l:controller)controller$(), the computer will not turn on. $(br) $(br)To power a computer, provide the $(l)$(l:controller)controller$() with a redstone signal on any face. The speed with which the computer operates is regulated by the strength",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "of the applied signal. Applying multiple redstone signals to a single $(l)$(l:controller)controller$() lead to undefined behavior. Contact the manufacturer of your $(l)$(l:controller)controller$() for a specification, as this may void your warranty. Providing a minimum amount of power pauses the computer. Powering off a computer completely resets its state. $(br) $(br)",
+            "type": "text"
+        },
+        {
+            "title": "Module Specification",
+            "text": "A $(l)$(l:casing)casing$() provides room for up to six $(l)$(l:index)modules$(), each of which can be placed on one of the sides of the $(l)$(l:casing)casing$(). Each $(l)$(l:index)module$() has up to four local connections to neighboring $(l)$(l:index)modules$(), one for each edge of the $(l)$(l:index)module$(): $(l)up$(), $(l)right$(), $(l)down$() and $(l)left$(). These ports allow $(l)$(l:index)modules$() to communicate by reading and writing individual values. $(br) $(br)Each read/write operation is a blocking",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "operation. The $(l)$(l:index)module$() performing the operation typically blocks until the operation has been completed. $(o)Vendor-specific exceptions may exist$(). Should two $(l)$(l:index)modules$() begin a read operation on the same shared port, they enter a deadlock. If a $(l)$(l:index)module$() writes to a port on a side with no other $(l)$(l:index)module$(), it deadlocks itself. To break a deadlock, reset the computer. Hot-swapping $(l)$(l:index)modules$() is technically possible, but usually leads to undesired results. $(br)",
+            "type": "text"
+        }
+    ]
+}

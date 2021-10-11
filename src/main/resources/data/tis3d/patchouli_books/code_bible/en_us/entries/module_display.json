@@ -1,0 +1,37 @@
+{
+    "name": "Display Module",
+    "icon": "tis3d:module_display",
+    "category": "tis3d:modules",
+    "pages": [
+        {
+            "title": "",
+            "text": "The display module provides a highly flexible method of visualizing arbitrary data as a two-dimensional grid of colored cells ($(o)Editor's note$(): \"pixels\" as the kids like to call them). The color of these cells can be changed by providing a sequence of numbers to any of the four ports of the display module, containing a color code and position",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "and size of the rectangle to fill. $(br) $(br)The display module continuously reads values from all four of its ports and accumulates five values into a single draw call. Once all five values required for a draw call have been received, the described rectangle is applied to the color grid. $(br) $(br)",
+            "type": "text"
+        },
+        {
+            "title": "Draw Call Specification",
+            "text": "Each sequence of five received by the display module is interpreted as a draw call with the components: color, column, row, width and height. The grid is quadratic and has twenty-eight (28) columns and rows. Color values are from a fixed palette. The exact color values may vary by vendor, however the general color names follow the physical spectrum of this world: $(br)- $(l)0$(): White $(br)",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "- $(l)1$(): Orange $(br)- $(l)2$(): Magenta $(br)- $(l)3$(): Light Blue $(br)- $(l)4$(): Yellow $(br)- $(l)5$(): Lime $(br)- $(l)6$(): Pink $(br)- $(l)7$(): Gray $(br)- $(l)8$(): Silver $(br)- $(l)9$(): Cyan $(br)- $(l)10$(): Purple $(br)- $(l)11$(): Blue $(br)- $(l)12$(): Brown $(br)- $(l)13$(): Green $(br)- $(l)14$(): Red $(br)- $(l)15$(): Black $(br)",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "Providing illegal values for either color or coordinates is undefined behavior, but should generally be handled gracefully at the vendor's discretion. $(br) $(br)A simple program drawing vertical lines in the different colors: $(br)$(l)MOV 16 ACC$() $(br)$(l)LOOP:$() $(br)$(l)SUB 1$() $(br)$(l)MOV ACC LEFT # COLOR$() $(br)$(l)MOV ACC LEFT # X$() $(br)$(l)MOV",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "0 LEFT # Y$() $(br)$(l)MOV 1 LEFT # WIDTH$() $(br)$(l)MOV 28 LEFT # HEIGHT$() $(br)$(l)JNZ LOOP$() $(br)",
+            "type": "text"
+        }
+    ]
+}

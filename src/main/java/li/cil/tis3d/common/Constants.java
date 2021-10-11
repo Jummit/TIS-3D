@@ -15,7 +15,6 @@ public final class Constants {
     public static final Identifier NAME_BLOCK_CONTROLLER = new Identifier(API.MOD_ID, "controller");
 
     public static final Identifier NAME_ITEM_BOOK_CODE = new Identifier(API.MOD_ID, "book_code");
-    public static final Identifier NAME_ITEM_BOOK_MANUAL = new Identifier(API.MOD_ID, "book_manual");
     public static final Identifier NAME_ITEM_KEY = new Identifier(API.MOD_ID, "key");
     public static final Identifier NAME_ITEM_KEY_CREATIVE = new Identifier(API.MOD_ID, "key_creative");
     public static final Identifier NAME_ITEM_MODULE_AUDIO = new Identifier(API.MOD_ID, "module_audio");
@@ -87,7 +86,6 @@ public final class Constants {
     public static final int MAX_TOOLTIP_WIDTH = 200;
 
     public static final String TOOLTIP_BOOK_CODE = "tis3d.tooltip.book_code";
-    public static final String TOOLTIP_BOOK_MANUAL = "tis3d.tooltip.book_manual";
     public static final String TOOLTIP_KEY = "tis3d.tooltip.key";
 
     // --------------------------------------------------------------------- //

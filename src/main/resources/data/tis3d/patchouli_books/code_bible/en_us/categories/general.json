@@ -1,0 +1,5 @@
+{
+	"name": "General",
+	"description": "TIS-3D is a 3-dimensional interpretation of the TIS design. Its purpose is to allow controlling other machinery and mechanisms in the world, which might otherwise require complex redstone contraptions. Or just to provide an interesting challenge on its own!",
+	"icon": "tis3d:controller"
+}

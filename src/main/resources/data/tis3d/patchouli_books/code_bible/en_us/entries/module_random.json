@@ -1,0 +1,12 @@
+{
+    "name": "Random Module",
+    "icon": "tis3d:module_random",
+    "category": "tis3d:modules",
+    "pages": [
+        {
+            "title": "",
+            "text": "The random module uses the high entropy of a void-near substance to generate uniformly distributed random values over the value range supported in a TIS-3D computer. $(br) $(br)The random module continuously writes values to all four of its ports. $(br)",
+            "type": "text"
+        }
+    ]
+}

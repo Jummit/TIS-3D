@@ -1,0 +1,27 @@
+{
+    "name": "Terminal Module",
+    "icon": "tis3d:module_terminal",
+    "category": "tis3d:modules",
+    "pages": [
+        {
+            "title": "",
+            "text": "The terminal module provides a more advanced form of input than the $(l)$(l:module_keypad)keypad module$() with a more specific form of output than the $(l)$(l:module_display)display module$(). $(br) $(br)The user may input a single line of text, which, when submitted, is written character by character to all of the ports of the terminal module. Characters are",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "converted to numerical values according to codepage 437. Further input submissions are disabled until the full line has been transmitted. This indicated by the input line being greyed out, and the caret not blinking. It is however possible to input more text in this state to prepare for the moment submissions are enabled again. $(br) $(br)Values are permanently read from all four ports of the terminal module. Received values are",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "truncated to 8-bit values (0xFF masked), and interpreted as characters from codepage 437, with the exception of a few codes that are interpreted as control characters. These control characters include $(l)\\a$() (bell), $(l)\\b$() (backspace), $(l)\\t$() (tab) as well as $(l)\\n$() and $(l)\\r$() (both resulting in a newline). $(br) $(br)If the write index on the current line has reached the maximum line length and a value is read, an automatic newline will be enforced",
+            "type": "text"
+        },
+        {
+            "title": "",
+            "text": "automatic line-wrapping). If a newline occurs while on the last line of text that can be displayed, all lines will be scrolled up by one, dropping the first line. $(br) $(br)A value from the currently processed input line can always only be transferred to one port, i.e. values will never be duplicated; even when multiple reads would occur in one $(l)$(l:controller)controller$() cycle, only one will succeed. $(br)",
+            "type": "text"
+        }
+    ]
+}

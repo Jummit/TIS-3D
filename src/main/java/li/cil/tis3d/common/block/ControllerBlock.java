@@ -43,13 +43,6 @@ public final class ControllerBlock extends Block implements BlockEntityProvider 
                     if (!player.abilities.creativeMode) {
                         heldItem.split(1);
                     }
-                    final ItemStack bookManual = new ItemStack(Items.BOOK_MANUAL);
-                    if (player.inventory.insertStack(bookManual)) {
-                        player.playerScreenHandler.sendContentUpdates();
-                    }
-                    if (bookManual.getCount() > 0) {
-                        player.dropItem(bookManual, false, false);
-                    }
                 }
                 return ActionResult.SUCCESS;
             }

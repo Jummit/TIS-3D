@@ -8,7 +8,6 @@ import li.cil.tis3d.api.util.TransformUtil;
 import li.cil.tis3d.common.API;
 import li.cil.tis3d.common.block.entity.CasingBlockEntity;
 import li.cil.tis3d.common.init.Items;
-import li.cil.tis3d.common.item.ManualBookItem;
 import li.cil.tis3d.common.mixin.ItemUsageContextAccessors;
 import li.cil.tis3d.util.InventoryUtils;
 import li.cil.tis3d.util.WorldUtils;
@@ -155,14 +154,6 @@ public final class CasingBlock extends Block implements BlockEntityProvider {
                         }
                     }
                     return ActionResult.SUCCESS;
-                }
-
-                // Trying to look something up in the manual?
-                if (Items.isBookManual(heldItem)) {
-                    final ItemStack moduleStack = casing.getStack(blockHitResult.getSide().ordinal());
-                    if (ManualBookItem.tryOpenManual(world, player, API.manual.pathFor(moduleStack))) {
-                        return ActionResult.SUCCESS;
-                    }
                 }
 
                 // Let the module handle the activation.

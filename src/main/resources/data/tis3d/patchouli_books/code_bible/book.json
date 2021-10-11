@@ -1,0 +1,11 @@
+{
+	"name": "TIS-3D Manual",
+	"landing_text": "\"The Tessellated Intelligence System is a massively parallel computer architecture comprised of non/uniformly interconnected heterogeneous nodes. It is ideal for applications requiring complex data stream processing, such as automated financial trading, bulk data collection, and civilian behavioral analysis.\" - $(o)TIS-100 Reference Manual$()",
+	"version": 1,
+	"creative_tab": "tis3d.name",
+	"show_progress": false,
+	"model": "tis3d:book_manual",
+	"nameplate_color": "000000",
+	"book_texture": "tis3d:textures/gui/manual.png",
+	"index_icon": "tis3d:textures/gui/manual_home.png"
+}

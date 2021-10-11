@@ -33,7 +33,6 @@ public final class TerminalModuleGui extends Screen {
     public void render(final MatrixStack matrices, final int mouseX, final int mouseY, final float partialTicks) {
         GlStateManager.disableTexture();
 
-        // To be on the safe side (see manual.Document#render).
         GlStateManager.disableAlphaTest();
 
         GlStateManager.color4f(1, 1, 1, 1);
